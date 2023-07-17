@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Publicaciones</h1>
+
+<div class="mb-3">
+  <%= link_to "Nueva publicacion", new_post_path, class: 'btn btn-primary' %>
+</div>
+<div id="posts" class="mb-3">
+  <% @posts.each do |post| %>
+    <div class="card" style="width: flex; margin-top: auto; margin-bottom: 10px">
+      <div class="card-header">
+          <h6 class="card-subtitle mb-2 text-body-secondary"><%= post.user.email %></h6>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= post.title %></h5>
+        <p><%= image_tag(post.image, class: 'img-fluid') %></p>
+        <p class="card-text"><%= post.description %></p>
+        <%= link_to "Mostrar", post, class: 'btn btn-success' %>
+      </div>
+    </div>
+  <% end %>
+</div>
